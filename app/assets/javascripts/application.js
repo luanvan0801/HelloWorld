@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require_self
+$(document).ready(function(){
+	$('#success-btn').click(function(){
+		alert("Hello success ");
+	});
+
+});

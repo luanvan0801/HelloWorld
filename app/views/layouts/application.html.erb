@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="wrapper">
+<header class="navbar navbar-fixed-top" id="menu-item">
+      <div class="container row" id="menu-top">
+      
+        <nav>
+          <ul class="nav navbar-nav navbar-right" id="menu-item">
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Welcome, #{session[:user] if session[:user]!=nil}#{User.find(cookies.signed[:user_id]).name if session[:user]==nil && cookies.signed[:user_id]!=nil}" ,   '#' %></li>
+            <li><%= link_to "Log in", login_path %></li>
+			<li><%= link_to "Log out", logout_path %></li>
+			<li><%= link_to "Sign up now!", signup_path%></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+<div style="margin-bottom:60px;"></div>
+			<%= yield %>
+	<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>
