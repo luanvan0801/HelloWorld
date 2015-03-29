@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	skip_before_action :session_required
+	before_action :session_required, only: [:edit_page, :edit_user]
   def addUser
 	user=User.new
 	user.name=params[:username]
@@ -15,6 +15,25 @@ class UsersController < ApplicationController
 		render "new"
 	end
   end
+  def edit_page
+	if session[:userid]!=nil
+		userid=session[:userid]
+	else 
+		userid=cookies.signed[:user_id]
+	end
+	@user_session=User.find(userid)
+  end
+  
+  def edit_user
+	
+	edit_page
+	 if @user_session.update_attributes(:name => params[:username], :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation])
+		redirect_to '/'
+	else 
+		render 'edit_page'
+	end
+  end
+  
   def login
   end
   
@@ -61,4 +80,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+	
 end

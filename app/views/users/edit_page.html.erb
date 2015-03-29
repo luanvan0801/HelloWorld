@@ -1,19 +1,19 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign Up</h1>
+<% provide(:title, 'Edit account') %>
+<h1>Edit Account</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_tag("/adduser", :method => "post") do %>
+    <%= form_tag("/edituser", :method => "post") do %>
 		<div class="row">
 			<div class="col-lg-8">
 				<label for="tName">Username:</label>
-				<input name="username" type="text" class="form-control" id="username" placeholder="Enter username Name">
+				<input name="username" type="text" class="form-control" id="username" placeholder="Enter username Name" value="<%= @user_session.name %>">
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col-lg-8">
 				<label for="tName">Email:</label>
-				<input name="email" type="text" class="form-control" id="email" placeholder="Enter email">
+				<input name="email" type="text" class="form-control" id="email" placeholder="Enter email" value="<%= @user_session.email %>">
 			</div>
 		</div>
 		

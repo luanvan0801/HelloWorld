@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 	get 'logout'  => 'users#logout'
 	post 'checklogin' =>'users#checkLogin'
 	post 'adduser' => 'users#addUser'
+	get 'editpage' => 'users#edit_page'
+	post 'edituser' => 'users#edit_user'
 	
 
   # The priority is based upon order of creation: first created -> highest priority.
