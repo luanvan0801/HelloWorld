@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 			if user && user.authenticated?(cookies[:remember_token])
 				#debugger
 				#redirect_to "/"
+				#new update
 			else 
 				redirect_to "/login"
 			end
