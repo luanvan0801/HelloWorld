@@ -1,5 +1,6 @@
 #user controller
 #update from server
+#update again
 class UsersController < ApplicationController
 	before_action :session_required, only: [:edit_page, :edit_user]
   def addUser
