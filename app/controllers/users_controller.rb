@@ -1,5 +1,6 @@
 #user controller
 #update from server
+#update from me
 #update from Pycharm branch | server
 class UsersController < ApplicationController
 	before_action :session_required, only: [:edit_page, :edit_user]
