@@ -1,4 +1,5 @@
 #update from master server
+#22/07/2015
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
